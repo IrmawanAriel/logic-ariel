@@ -15,6 +15,30 @@ Complete the function biggerIsGreater below to create and return the new string 
 
 
 function biggerIsGreater(word) {
+
+    /**
+     * cari huruf yang lebih kecil dari dari huruf sbelah kanannya
+     * let i ;
+     * loop(i=char.lenght -1; i>0;i--){
+     *  if(char[i-1]<char[i]) maka berhentika looping
+     * }
+     * 
+     * pivot = i-1
+     * loop(j=char.length-1; i>pivot;i--){
+     *  if(char[j]>char[pivot]) berhentikan looping
+     * }
+     * 
+     * tukar element j dengan element pivot
+     * 
+     * baru sorting huruf sisi kanan pivot
+     * 
+     * akhir: lalu satukan dari array 0 - array pivot
+     * 
+     * return hasilnya
+     * 
+     */
+
+
     const chars = word.split('');
     // cari huruf yang lebih kecil dari sebelah kanannya (cari dari kanan)
     let i;
