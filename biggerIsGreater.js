@@ -13,37 +13,33 @@ The next largest word is abdc.
 Complete the function biggerIsGreater below to create and return the new string meeting the criteria. If it is not possible, return no answer.
 */
 
-const Lexicographical = {
-    a : 1,
-    b : 2,
-    c : 3,
-    d : 4,
-    e : 5,
-    f : 6,
-    g : 7,
-    h : 8,
-    i : 9,
-    j : 10,
-    k : 11,
-    l : 12,
-    m : 13,
-    n : 14,
-    o : 15,
-    p : 16,
-    q : 17,
-    r : 18,
-    s : 19,
-    t : 20, 
-    u : 21,
-    v : 22,
-    w : 23,
-    x : 24,
-    y : 25,
-    z : 26
-}
 
-function biggerIsGreater(w1) {
+function biggerIsGreater(word) {
+    const chars = word.split('');
+    // cari huruf yang lebih kecil dari sebelah kanannya (cari dari kanan)
+    let i;
+    for (i = chars.length - 1; i > 0; i--) {
+        if (chars[i - 1] < chars[i]) break;
+    }
     
-}
+    if (i === 0) return 'no answer'; // Jika tidak ada pivot ditemukan, kembalikan 'no answer'
+    
+    const pivot = i - 1;// Langkah 2: Temukan karakter pengganti
+    let j;
+    for (j = chars.length - 1; j > pivot; j--) {
+        if (chars[j] > chars[pivot]) break;
+    }
+    
+    [chars[pivot], chars[j]] = [chars[j], chars[pivot]];// Langkah 3: Tukar karakter
 
-biggerIsGreater('ab')
+    // Langkah 4: Urutkan sisa karakter
+    const right = chars.slice(pivot + 1).sort();
+    const result = chars.slice(0, pivot + 1).concat(right).join('');
+
+    return result;
+}
+console.log(biggerIsGreater('ab'));   // Output: "ba"
+console.log(biggerIsGreater('adcb'));  // Output: "bacd"
+console.log(biggerIsGreater('hefg'));  // Output: "hegf"
+console.log(biggerIsGreater('dhck'));  // Output: "dhkc"
+console.log(biggerIsGreater('dkhc'));  // Output: "hcdk"
