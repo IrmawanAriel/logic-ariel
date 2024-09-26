@@ -48,22 +48,22 @@ function biggerIsGreater(word) {
     
     if (i === 0) return 'no answer'; // Jika tidak ada pivot ditemukan, kembalikan 'no answer'
     
-    const pivot = i - 1;// Langkah 2: Temukan karakter pengganti
+    const pivot = i - 1;// cari karakter pengganti
     let j;
     for (j = chars.length - 1; j > pivot; j--) {
         if (chars[j] > chars[pivot]) break;
     }
     
-    [chars[pivot], chars[j]] = [chars[j], chars[pivot]];// Langkah 3: Tukar karakter
+    [chars[pivot], chars[j]] = [chars[j], chars[pivot]];// Tukar karakter
 
-    // Langkah 4: Urutkan sisa karakter
+    // Urutkan sisa karakter
     const right = chars.slice(pivot + 1).sort();
     const result = chars.slice(0, pivot + 1).concat(right).join('');
 
     return result;
 }
-console.log(biggerIsGreater('ab'));   // Output: "ba"
-console.log(biggerIsGreater('adcb'));  // Output: "bacd"
-console.log(biggerIsGreater('hefg'));  // Output: "hegf"
-console.log(biggerIsGreater('dhck'));  // Output: "dhkc"
-console.log(biggerIsGreater('dkhc'));  // Output: "hcdk"
+console.log(biggerIsGreater('ab'));   
+console.log(biggerIsGreater('adcb'));  
+console.log(biggerIsGreater('hefg'));  
+console.log(biggerIsGreater('dhck')); 
+console.log(biggerIsGreater('dkhc')); 
