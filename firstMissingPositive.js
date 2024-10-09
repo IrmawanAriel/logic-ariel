@@ -46,7 +46,7 @@ function firstMissingPositive(arr) {
   var storedNumber = []
   var result = []
 
-  for (i = 0; i < arr.length; i++) { //working
+  for (i = 0; i < arr.length; i++) { // working
     if (arr[i] > 0) {
       searchDomain.push(arr[i])
     }

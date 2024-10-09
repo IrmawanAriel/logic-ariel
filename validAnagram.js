@@ -60,6 +60,6 @@ function validAnagram(w1, w2) {
 
 }
 
-console.log(validAnagram('aaz', 'zza'))
+console.log(validAnagram('aazs', 'szaa'))
 
 module.exports = validAnagram;
